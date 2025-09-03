@@ -6,6 +6,9 @@ import com.wecp.progressive.entity.Transactions;
 import java.sql.SQLException;
 import java.util.List;
 
+import org.springframework.stereotype.Service;
+
+@Service
 public interface TransactionService {
     List<Transactions> getAllTransactions() throws SQLException;
     Transactions getTransactionById(int transactionId) throws SQLException;
