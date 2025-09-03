@@ -2,6 +2,7 @@ package com.wecp.progressive.dao;
 
 import com.wecp.progressive.config.DatabaseConnectionManager;
 import com.wecp.progressive.entity.Accounts;
+import com.wecp.progressive.entity.Customers;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -30,7 +31,6 @@ public class AccountDAOImpl implements AccountDAO {
                 int accountId = resultSet.getInt("account_id");
                 int customerId = resultSet.getInt("customer_id");
                 double balance = resultSet.getDouble("balance");
-
                 accounts.add(new Accounts(accountId, customerId, balance));
             }
         } catch (SQLException e) {

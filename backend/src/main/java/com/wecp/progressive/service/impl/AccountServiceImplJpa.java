@@ -1,6 +1,7 @@
 package com.wecp.progressive.service.impl;
 
 import java.sql.SQLException;
+import java.util.Comparator;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,35 +25,39 @@ public class AccountServiceImplJpa implements AccountService{
 
     @Override
     public List<Accounts> getAllAccounts() throws SQLException {
-        return null;
+        return accountRepository.findAll();
     }
 
 
     @Override
     public int addAccount(Accounts accounts) throws SQLException {
-        return -1;
+        return accountRepository.save(accounts).getAccountId();
     }
 
     @Override
     public List<Accounts> getAllAccountsSortedByBalance() throws SQLException {
-        return null;
+        List<Accounts> sortedAccounts = accountRepository.findAll();
+        if(sortedAccounts != null){
+            sortedAccounts.sort(Comparator.comparingDouble(Accounts::getBalance));
+        }
+        return sortedAccounts;
     }
 
     
     public Accounts getAccountById(int accountId) throws SQLException{
-        return null;
+        return accountRepository.findByAccountId(accountId);
     }
 
-    public List<Accounts> getAccountsByUser(int userId) throws SQLException{
-        return null;
+    public List<Accounts> getAccountsByUser(int customerId) throws SQLException{
+        return accountRepository.getAccountsByCustomerCustomerId(customerId);
     }
 
     public void updateAccount(Accounts accounts) throws SQLException {
-
+        accountRepository.save(accounts);
     }
 
     public void deleteAccount(int accountId) throws SQLException {
-
+        accountRepository.deleteById(accountId);
     }
     
 }

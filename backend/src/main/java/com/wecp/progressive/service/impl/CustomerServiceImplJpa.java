@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 
 import com.wecp.progressive.entity.Accounts;
 import com.wecp.progressive.entity.Customers;
+import com.wecp.progressive.repository.AccountRepository;
 import com.wecp.progressive.repository.CustomerRepository;
 import com.wecp.progressive.service.CustomerService;
 
@@ -17,9 +18,13 @@ import com.wecp.progressive.service.CustomerService;
 public class CustomerServiceImplJpa implements CustomerService{
 
     @Autowired
+    private AccountRepository accountRepository;
+    
+    @Autowired
     private final CustomerRepository customerRepository;
 
     public CustomerServiceImplJpa(CustomerRepository customerRepository) {
+       
         this.customerRepository = customerRepository;
     }
 

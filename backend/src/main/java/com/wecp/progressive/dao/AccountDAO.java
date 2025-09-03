@@ -12,5 +12,4 @@ public interface AccountDAO {
     void updateAccount(Accounts accounts) throws SQLException;
     void deleteAccount(int accountId) throws SQLException;
     List<Accounts> getAllAccounts() throws SQLException;
-    
 }

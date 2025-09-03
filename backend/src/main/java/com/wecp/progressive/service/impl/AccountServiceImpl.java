@@ -5,12 +5,12 @@ import java.util.Comparator;
 import java.util.List;
 
 import com.wecp.progressive.dao.AccountDAO;
-import com.wecp.progressive.dao.AccountDAOImpl;
 import com.wecp.progressive.entity.Accounts;
 import com.wecp.progressive.service.AccountService;
 
 public class AccountServiceImpl implements AccountService {
     private AccountDAO accountDAO;
+    
     
     public AccountServiceImpl(AccountDAO accountDAO) {
         this.accountDAO = accountDAO;

@@ -1,24 +1,20 @@
 package com.wecp.progressive.dao;
+
 import com.wecp.progressive.config.DatabaseConnectionManager;
-import com.wecp.progressive.dao.CustomerDAO;
+import com.wecp.progressive.dto.CustomerAccountInfo;
+import com.wecp.progressive.entity.Customers;
+
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+
 import java.util.ArrayList;
 import java.util.List;
 
-import com.wecp.progressive.dto.CustomerAccountInfo;
-import com.wecp.progressive.entity.Accounts;
-import com.wecp.progressive.entity.Customers;
+public class CustomerDAOImpl implements CustomerDAO {
 
-public class CustomerDAOImpl implements CustomerDAO{
-    // private CustomerDAO customerDAO;
-    
-    // public CustomerDAOImpl() {
-    //     this.customerDAO = customerDAO;
-    // }
 
     @Override
     public List<Customers> getAllCustomers() throws SQLException {
